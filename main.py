@@ -6,76 +6,76 @@ from PyPDF2 import PdfReader
 import requests
 import io 
 import docx
-# import spacy
+import spacy
 import re
 from collections import Counter
-# import en_core_web_sm
+import en_core_web_sm
 
 # # Load the spaCy model
-# nlp = en_core_web_sm.load()
+nlp = en_core_web_sm.load()
 
 
-def preprocess_text(text):
-    # Convert text to lowercase and remove non-alphanumeric characters
-    text = re.sub(r'[^a-zA-Z0-9\s]', '', text.lower())
-    return text
+# def preprocess_text(text):
+#     # Convert text to lowercase and remove non-alphanumeric characters
+#     text = re.sub(r'[^a-zA-Z0-9\s]', '', text.lower())
+#     return text
 
-def generate_summary(text, num_sentences=3):
-    # Preprocess the text
-    preprocessed_text = preprocess_text(text)
+# def generate_summary(text, num_sentences=3):
+#     # Preprocess the text
+#     preprocessed_text = preprocess_text(text)
 
-    # Split the text into words
-    words = preprocessed_text.split()
+#     # Split the text into words
+#     words = preprocessed_text.split()
 
-    # Calculate word frequency
-    word_freq = Counter(words)
+#     # Calculate word frequency
+#     word_freq = Counter(words)
 
-    # Calculate sentence scores based on word frequency
-    sentence_scores = {}
-    sentences = text.split('.')
-    for i, sentence in enumerate(sentences):
-        for word in sentence.split():
-            if word in word_freq:
-                if i in sentence_scores:
-                    sentence_scores[i] += word_freq[word]
-                else:
-                    sentence_scores[i] = word_freq[word]
+#     # Calculate sentence scores based on word frequency
+#     sentence_scores = {}
+#     sentences = text.split('.')
+#     for i, sentence in enumerate(sentences):
+#         for word in sentence.split():
+#             if word in word_freq:
+#                 if i in sentence_scores:
+#                     sentence_scores[i] += word_freq[word]
+#                 else:
+#                     sentence_scores[i] = word_freq[word]
 
-    # Select top sentences for summary
-    sorted_sentences = sorted(sentence_scores.items(), key=lambda x: x[1], reverse=True)
-    selected_sentences = sorted_sentences[:num_sentences]
+#     # Select top sentences for summary
+#     sorted_sentences = sorted(sentence_scores.items(), key=lambda x: x[1], reverse=True)
+#     selected_sentences = sorted_sentences[:num_sentences]
 
-    # Sort selected sentences based on original order
-    selected_sentences.sort()
+#     # Sort selected sentences based on original order
+#     selected_sentences.sort()
 
-    # Generate the summary
-    summary = ' '.join([sentences[idx] for idx, _ in selected_sentences])
+#     # Generate the summary
+#     summary = ' '.join([sentences[idx] for idx, _ in selected_sentences])
 
-    return summary
-# def generate_summary(text, max_words=100):
-#     # Process the input text
-#     doc = nlp(text)
+#     return summary
+def generate_summary(text, max_words=100):
+    # Process the input text
+    doc = nlp(text)
 
-#     # Calculate the importance of each sentence based on the sum of its token ranks
-#     sentence_scores = []
-#     for sentence in doc.sents:
-#         score = sum([token.rank for token in sentence])
-#         sentence_scores.append((sentence, score))
+    # Calculate the importance of each sentence based on the sum of its token ranks
+    sentence_scores = []
+    for sentence in doc.sents:
+        score = sum([token.rank for token in sentence])
+        sentence_scores.append((sentence, score))
 
-#     # Sort sentences by score in descending order
-#     sentence_scores.sort(key=lambda x: x[1], reverse=True)
+    # Sort sentences by score in descending order
+    sentence_scores.sort(key=lambda x: x[1], reverse=True)
 
-#     # Generate the summary by selecting the top sentences up to the max_words limit
-#     summary = []
-#     word_count = 0
-#     for sentence, score in sentence_scores:
-#         if word_count + len(sentence) <= max_words:
-#             summary.append(sentence.text)
-#             word_count += len(sentence)
-#         else:
-#             break
+    # Generate the summary by selecting the top sentences up to the max_words limit
+    summary = []
+    word_count = 0
+    for sentence, score in sentence_scores:
+        if word_count + len(sentence) <= max_words:
+            summary.append(sentence.text)
+            word_count += len(sentence)
+        else:
+            break
 
-#     return " ".join(summary) 
+    return " ".join(summary) 
 
 
 st.set_page_config(layout="wide")
@@ -103,14 +103,14 @@ def extract_text_from_pdf(file_path):
 # @st.cache_data.clear
 
 def extract_text_from_txt(uploaded_file):
-    # linestxt = []
-    # with io.TextIOWrapper(uploaded_file, encoding='utf-8') as file:
-    #     lines = file.readlines()
-    #     for line in lines:
-    #         linestxt.append(line)
-    # return linestxt
-    txt=preprocess_text(uploaded_file)
-    return txt
+    linestxt = []
+    with io.TextIOWrapper(uploaded_file, encoding='utf-8') as file:
+        lines = file.readlines()
+        for line in lines:
+            linestxt.append(line)
+    return linestxt
+    # txt=preprocess_text(uploaded_file)
+    # return txt
 # @st.cache_data.clear
 
 def search(query):
