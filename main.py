@@ -220,13 +220,13 @@ def main():
                 article.download()
                 article.parse()
                 article.nlp()
-                authors=article.authors
-                t=article.title
-                st.subheader("Title")
-                st.write(''.join(t))
-                if not not authors:
-                    st.subheader("Author Name")
-                    st.write(','.join(authors))
+                # authors=article.authors
+                # t=article.title
+                # st.subheader("Title")
+                # st.write(''.join(t))
+                # if not not authors:
+                #     st.subheader("Author Name")
+                #     st.write(','.join(authors))
                 # article.nlp()
                 # st.subheader('Keywords')
                 # key=article.keywords
