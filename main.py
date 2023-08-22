@@ -6,13 +6,14 @@ from PyPDF2 import PdfReader
 import requests
 import io 
 import docx
-import spacy
+# import spacy
+import re
+from collections import Counter
 # import en_core_web_sm
 
 # # Load the spaCy model
 # nlp = en_core_web_sm.load()
-import re
-from collections import Counter
+
 
 def preprocess_text(text):
     # Convert text to lowercase and remove non-alphanumeric characters
@@ -102,12 +103,14 @@ def extract_text_from_pdf(file_path):
 # @st.cache_data.clear
 
 def extract_text_from_txt(uploaded_file):
-    linestxt = []
-    with io.TextIOWrapper(uploaded_file, encoding='utf-8') as file:
-        lines = file.readlines()
-        for line in lines:
-            linestxt.append(line)
-    return linestxt
+    # linestxt = []
+    # with io.TextIOWrapper(uploaded_file, encoding='utf-8') as file:
+    #     lines = file.readlines()
+    #     for line in lines:
+    #         linestxt.append(line)
+    # return linestxt
+    txt=preprocess_text(uploaded_file)
+    return txt
 # @st.cache_data.clear
 
 def search(query):
