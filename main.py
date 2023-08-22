@@ -7,7 +7,6 @@ import requests
 import io 
 import docx
 import spacy
-import spacy_streamlit
 import en_core_web_sm
 
 # Load the spaCy model
