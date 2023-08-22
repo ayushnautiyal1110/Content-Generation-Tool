@@ -7,3 +7,4 @@ spacy==3.6.1
 SpeechRecognition==3.10.0
 streamlit==1.25.0
 en_core_web_sm==3.6.0
+python -m spacy download en_core_web_sm
