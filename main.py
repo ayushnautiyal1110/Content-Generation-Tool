@@ -9,6 +9,8 @@ import docx
 # import spacy
 import re
 from collections import Counter
+import requests
+from bs4 import BeautifulSoup
 # import en_core_web_sm
 
 # # Load the spaCy model
@@ -114,26 +116,24 @@ def extract_text_from_txt(uploaded_file):
 # @st.cache_data.clear
 
 def search(query):
-    url = f"https://en.wikipedia.org/wiki/{query}"
-    if url:
-        article=newspaper.Article(url)
-        article.download()
-        article.parse()
-        article.nlp()
-        # authors=article.authors
-        # t=article.title
-        # st.subheader("Title")
-        # st.write(''.join(t))
-        # t1,t2=st.tabs(["Your Current Text","Your Summarize Text"])
-        
-        tab1,tab2=st.columns([1,1])
-        with tab1:
-            st.markdown("Your Current Text")
-            st.info(article.text)
-        with tab2:
-            text1=article.text
-            st.markdown("Your Summarize Text")
-            st.write(article.summary)
+    url1 = f"https://en.wikipedia.org/wiki/{query}"
+    if url1:
+        response = requests.get(url1)
+        if response.status_code == 200:
+            html_content = response.content
+            soup = BeautifulSoup(html_content, 'html.parser')
+            text = soup.get_text()
+
+# Clean and process the text if needed
+# For example, remove extra whitespace and newlines
+            clean_text = ' '.join(text.split())
+            tab1,tab2=st.columns([1,1])
+            with tab1:
+                st.markdown("Your Content from URL")
+                st.write(clean_text)
+            with tab2:
+                st.markdown("Your Summarize Text")
+                st.write(generate_summary(clean_text))
     else:
         st.write("Please Enter the URL don't leave it blank")
 
@@ -216,31 +216,24 @@ def main():
         try: #Checking that Url has something on it or not 
             url1=st.text_input('',placeholder='Paste and Copy URL')
             if st.button("Summarize URL"):
-                article=newspaper.Article(url1)
-                article.download()
-                article.parse()
-                article.nlp()
-                # authors=article.authors
-                # t=article.title
-                # st.subheader("Title")
-                # st.write(''.join(t))
-                # if not not authors:
-                #     st.subheader("Author Name")
-                #     st.write(','.join(authors))
-                # article.nlp()
-                # st.subheader('Keywords')
-                # key=article.keywords
-                # st.write(','.join(key))
-                # t1,t2=st.tabs(["Your Current Text","Your Summarize Text"])
-                
-                tab1,tab2=st.columns([1,1])
-                with tab1:
-                    st.markdown("Your Current Text")
-                    st.info(article.text)
-                with tab2:
-                    text1=article.text
-                    st.markdown("Your Summarize Text")
-                    st.write(article.summary)
+                response = requests.get(url1)
+                if response.status_code == 200:
+                    html_content = response.content
+                    soup = BeautifulSoup(html_content, 'html.parser')
+                    text = soup.get_text()
+
+    # Clean and process the text if needed
+    # For example, remove extra whitespace and newlines
+                    clean_text = ' '.join(text.split())
+                    tab1,tab2=st.columns([1,1])
+                    with tab1:
+                        st.markdown("Your Content from URL")
+                        st.write(clean_text)
+                    with tab2:
+                        st.markdown("Your Summarize Text")
+                        st.write(generate_summary(clean_text))
+                else:
+                    st.write("Failed to retrieve the web page.")
         except Exception as e:
             print(" ")
         

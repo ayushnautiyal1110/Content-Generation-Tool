@@ -1,3 +1,4 @@
+beautifulsoup4==4.12.2
 docx==0.2.4
 newspaper3k==0.2.8
 PyPDF2==3.0.1
