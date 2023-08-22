@@ -1,7 +1,0 @@
-docx 
-newspaper3k 
-PyPDF2 
-python_docx 
-  
-streamlit 
-txtai[all]
