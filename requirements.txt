@@ -7,4 +7,3 @@ spacy==3.6.1
 spacy_streamlit==1.0.6
 SpeechRecognition==3.10.0
 streamlit==1.25.0
-~treamlit==1.23.1
