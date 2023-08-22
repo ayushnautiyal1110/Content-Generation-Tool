@@ -120,10 +120,10 @@ def search(query):
         article.download()
         article.parse()
         article.nlp()
-        authors=article.authors
-        t=article.title
-        st.subheader("Title")
-        st.write(''.join(t))
+        # authors=article.authors
+        # t=article.title
+        # st.subheader("Title")
+        # st.write(''.join(t))
         # t1,t2=st.tabs(["Your Current Text","Your Summarize Text"])
         
         tab1,tab2=st.columns([1,1])
