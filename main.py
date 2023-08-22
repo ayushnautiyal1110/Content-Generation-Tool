@@ -8,10 +8,10 @@ import io
 import docx
 import spacy
 import spacy_streamlit
-
+import en_core_web_sm
 
 # Load the spaCy model
-nlp = spacy.load("en_core_web_sm")
+nlp = en_core_web_sm.load()
 
 def generate_summary(text, max_words=100):
     # Process the input text
