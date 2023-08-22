@@ -3,7 +3,5 @@ newspaper3k==0.2.8
 PyPDF2==3.0.1
 python_docx==0.8.11
 Requests==2.31.0
-spacy==3.6.1
 SpeechRecognition==3.10.0
 streamlit==1.25.0
-txtai==5.5.1
