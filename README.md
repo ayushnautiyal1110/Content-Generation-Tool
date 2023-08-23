@@ -74,7 +74,7 @@ YOUR APP IS READY
 
 https://content-generation-tool-6wi6ez9xgewdmbqqipqgyg.streamlit.app/
 ## 🔗 Links
-https://github.com/ayushnautiyal1110
+https://www.linkedin.com/in/ayush-nautiyal-27a025202/
 
 ## Usage
 
