@@ -40,11 +40,9 @@ Packages required for this project :
  
 beautifulsoup4==4.12.2
 docx==0.2.4
-newspaper3k==0.2.8
 PyPDF2==3.0.1
 python_docx==0.8.11
 Requests==2.31.0
-SpeechRecognition==3.10.0
 streamlit==1.25.0
 
 ## Deployment
@@ -67,8 +65,9 @@ YOUR APP IS READY
 
  Steps to use this Tool:
  Under Main Menu -> there are 4 options->
-  1)  Content Generator using Text: after selecting this option, user enters a paragarh of text to be summarized.
-  2)  Content Generator using Doc : user upload a file in the form of docx/pdf or txt. then content is generated based on the file.
+  1)  Content Generator using Text: after selecting this option, user enters a paragarh text to be summarized.
+  2)  Content Generator using Doc : user upload a file in the form of docx/pdf or txt. then content is generated based    
+      on the file.
   3)  Content Generator using URL : user enters a weblink, and the tool extract the imfo and summarize the content.
   4)  Content Generator using Search Engine: user enters a Keyword, The Tool extracts the info from the web and also summarize the content.
 
@@ -78,8 +77,20 @@ https://www.linkedin.com/in/ayush-nautiyal-27a025202/
 
 ## Usage
 
-   This Tool can be used by Research Analyst, Students, Blog writer, Content writers and Teachers.
-   For Book Lovers, specially Novel readers, This tool is very useful.
+   This Tool can be used by Research Analyst, Students, Blog writer, Content writers, Teachers, Book Lovers, specially Novel reader.
+
+   Other uses of This Tool are: 
+
+   Increased Efficiency: Content generation tools can produce high-quality content at a much faster pace compared to manual creation. This efficiency allows organizations and individuals to generate a larger volume of content in a shorter period, enabling them to disseminate ideas, information, and updates more rapidly.
+
+   Time and Resource Savings: Traditional content creation requires s ignificant time and human resources. Content generators drastically reduce the time and effort needed to create content, freeing up resources to focus on other strategic tasks or initiatives.
+
+   Consistency: Consistency is crucial for brand identity and audience engagement. Content generators can maintain a consistent tone, style, and messaging across various pieces of content, helping to reinforce the desired brand image and message.
+
+   Personalization at Scale: Personalized content is highly effective in engaging audiences. Content generators can incorporate data-driven insights to tailor content to individual preferences, behaviors, or demographics, thereby enhancing user engagement and connection.
+
+   Education and Learning: Content generators can be used in educational settings to create a wide range of learning materials, from lesson plans to quizzes and tutorials. This accelerates the dissemination of knowledge and promotes more efficient learning experiences.
+
 
 ## Authors
 
