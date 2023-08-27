@@ -1,6 +1,4 @@
 import streamlit as st
-import newspaper
-from newspaper import Article
 # from txtai.pipeline import Summary
 from PyPDF2 import PdfReader
 import requests
