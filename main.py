@@ -9,6 +9,7 @@ import re
 from collections import Counter
 import requests
 from bs4 import BeautifulSoup
+import speech_recognition as sr
 # import en_core_web_sm
 
 # # Load the spaCy model
