@@ -9,7 +9,6 @@ import re
 from collections import Counter
 import requests
 from bs4 import BeautifulSoup
-import speech_recognition as sr
 # import en_core_web_sm
 
 # # Load the spaCy model
@@ -253,28 +252,7 @@ def main():
                     st.info("Please Enter the Proper String")
             else:
                 st.write("Please Enter the Text Input don't leave it blank")
-    elif choice=="Content Generation using Voice":
-        st.title("Content Generation using Voice")
-        st.image("https://www.techpocket.org/wp-content/uploads/2020/02/Best-Speech-to-text.jpg",width=500)
-        if(st.button("Click to Speak")):
-            st.write("Recognizing Voice.........")
-            recognizer = sr.Recognizer()
-            with sr.Microphone() as source:
-                # print("Say something:")
-                audio_data = recognizer.listen(source,timeout=60)
-            try:
-                text = recognizer.recognize_google(audio_data)
-                col1,col2=st.columns([1,1])
-                with col1:
-                    st.write("Your Voice Input")
-                    st.info(text)
-                with col2:
-                    st.write("Your Summarize Voice Input")
-                    st.success(generate_summary(text))    
-            except sr.UnknownValueError:
-                st.write("Speech Recognition could not understand audio")
-            except sr.RequestError as e:
-                st.write(f"Could not request results from Google Speech Recognition service; {e}")
+    
             
 
 if __name__ == "__main__":
