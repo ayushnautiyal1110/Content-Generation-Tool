@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .card{
+                background-color:blue;
+                border:solid red 2px ;
+                text-decoration-color:cyan;
+            }
+            .main{
+                text-align:center;
+                font:violet;
+                background:violet;
+                text-shadow:1px;
+            }
+            html{
+               background:url("https://cdn.wallpapersafari.com/74/76/t2x1NF.jpg") top;
+               image-orientation:240x240;
+            }
+ 
+        </style>
+    </head>
+    <body>
+        <h1 class="main">
+            Students Details
+        </h1>
+        <div class="card">
+            Name <input type="text"><br>
+            Age <input type="number"><br>
+            Mobile <input type="number">
+        </div>
+    </body>
+    
+</html>

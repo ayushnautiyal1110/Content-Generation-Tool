@@ -1,0 +1,38 @@
+KMP Algo
+Boyer's Morre Algorithm 
+Z Algorithm
+Segmented Sieve 
+Master Theorm 
+Kruskal Algo
+Prim Algo
+Bellman Ford
+Dijkstra Algortihm
+Floyd Warshall 
+Johnson Algo
+Chinesse Remainder 
+Wilson Theorm
+Mo ALgorithm 
+Euler Theorm 
+Catlan number 
+Pigeon Hole 
+Inclusion Exclusion 
+Greedy 
+Sliding Window 
+Fenwick Tree
+Segment Tree 
+Sprase Table 
+Trie 
+Methold Overloading 
+Methold Overriding 
+Experience
+During my internship, I mastered core computer science
+concepts and became proficient in Python. I applied this
+knowledge effectively to real-world projects, enhancing my
+problem-solving skills and reinforcing my commitment to
+technology.
+Secondary Index Clustering index
+Candidate key Super Key
+SDLC
+Machine Learning :- SubField of AI that recongnises AI 
+OSI Model
+ 
