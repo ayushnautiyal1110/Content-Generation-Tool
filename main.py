@@ -9,6 +9,14 @@ import re
 from collections import Counter
 import requests
 from bs4 import BeautifulSoup
+from langchain_huggingface import ChatHuggingFace
+from langchain_huggingface import HuggingFaceEndpoint
+from dotenv import load_dotenv
+load_dotenv()
+llm=HuggingFaceEndpoint(
+    repo_id="ibm-granite/granite-4.2-30b",
+    task="text-generation"
+)
 # import en_core_web_sm
 
 # # Load the spaCy model
@@ -245,8 +253,10 @@ def main():
         if st.button("Search"):  
             if txt_input:
                 try:
-                    # st.info(search(txt_input))
-                    st.caption(search(txt_input))
+                    model=ChatHuggingFace(llm=llm)
+                    res=model.invoke(txt_input)
+                    st.write(res.content)
+                    
                 except Exception as e:
                     
                     st.info("Please Enter the Proper String")
