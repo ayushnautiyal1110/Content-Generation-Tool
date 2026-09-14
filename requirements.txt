@@ -4,3 +4,7 @@ PyPDF2==3.0.1
 python_docx==0.8.11
 Requests==2.31.0
 streamlit==1.25.0
+langchain
+langchain-core
+langchain-huggingface
+python-dotenv
